@@ -1,0 +1,38 @@
+//antd样式重写
+@import './_vars.less';
+/*
+*按钮*/
+.ant-btn-primary {
+  border-color: @common-color;
+  background: @common-color;
+}
+.ant-btn-primary:hover,
+.ant-btn-primary:focus {
+  border-color: @common-color;
+  background: @common-color;
+}
+.ant-btn[disabled] {
+  background: #eff2f4 !important;
+  border: 1px solid #e9e9e9 !important;
+  color: #ccc !important;
+}
+
+/*layout*/
+.ant-menu-item-selected {
+  background: rgba(25, 102, 255, 0.04) !important;
+  color: @common-color;
+}
+.ant-menu-submenu-selected {
+  color: @common-color;
+}
+.ant-menu-vertical .ant-menu-item::after,
+.ant-menu-vertical-left .ant-menu-item::after,
+.ant-menu-vertical-right .ant-menu-item::after,
+.ant-menu-inline .ant-menu-item::after {
+  border-right: 3px solid @common-color;
+}
+
+/*table*/
+.ant-table-thead > tr > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+  display: none;
+}

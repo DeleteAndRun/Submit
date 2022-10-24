@@ -1,0 +1,293 @@
+/*
+ * @Description: 全局样式处理
+ * @Author: lz
+ * @Date: 2021-07-21 10:32:54
+ * @LastEditTime: 2022-09-01 10:33:24
+ * @LastEditors: lz
+ */
+
+@import './rewrite.less';
+@import './_variable.less';
+@import './common.less';
+@common-size: 1px;
+
+.tm-w120 {
+  width: 120px !important;
+}
+
+.tm-w190 {
+  width: 190px !important;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.tm-hidden {
+  overflow: hidden;
+}
+
+.tm-relative {
+  position: relative;
+}
+
+.g-relative {
+  //v-loading指令使用  其他情况请用 tm-relative
+  position: relative;
+}
+
+.tm-absolute {
+  position: absolute;
+}
+
+.tm-search-input {
+  width: 220px !important;
+}
+
+.tm-common-warpper {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.tm-bold {
+  font-weight: bold !important;
+}
+
+.tm-bold-5 {
+  font-weight: 500 !important;
+}
+
+.tm-block {
+  display: block;
+}
+.tm-underline {
+  text-decoration: underline;
+}
+.tm-in-block {
+  display: inline-block;
+}
+
+.tm-cursor {
+  cursor: pointer;
+}
+
+.tm-flex {
+  display: flex;
+}
+
+.tm-flex-column {
+  flex-direction: column;
+}
+
+.tm-flex-wrap {
+  flex-wrap: wrap;
+}
+.tm-flex-nowrap {
+  flex-wrap: nowrap !important;
+}
+.tm-flex-1 {
+  flex: 1;
+}
+
+.tm-flex-2 {
+  flex: 2;
+}
+
+.tm-transition {
+  transition: all 0.5s;
+}
+
+.tm-text-nowrap {
+  white-space: nowrap;
+}
+
+.tm-fs-ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+//对齐两端文本
+.tm-text-justify {
+  text-align-last: justify;
+}
+
+//左圆角
+.tm-radius-left {
+  border-radius: 4px 0px 0px 4px;
+}
+
+//右圆角
+.tm-radius-right {
+  border-radius: 0px 4px 4px 0px;
+}
+
+.tm-auto-x {
+  overflow-x: auto;
+}
+
+.tm-auto-y {
+  overflow-y: auto;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.clearfix:after {
+  content: '.';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+// 通用浏览器滚动条样式
+.tm-scrollbar {
+  &::-webkit-scrollbar {
+    height: 1px;
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: #bbbbbb;
+  }
+  &::-webkit-scrollbar-track {
+    background: #f3f3f3;
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar {
+    height: 1px;
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: #bbbbbb;
+  }
+  &::-webkit-scrollbar-track {
+    background: #f3f3f3;
+    border-radius: 4px;
+  }
+}
+//颜色
+each(@colors, {
+    .tm-text-@{key} {
+      color: @value  !important;
+    }
+
+    .tm-bg-@{key} {
+      background-color: @value!important;
+    }
+  }
+
+);
+
+//字体 fs-xxs 8px fs-sm 12px fs-md 13px
+each(@font-sizes, {
+    .tm-fs-@{key} {
+      font-size: @value * @common-size  !important;
+    }
+  }
+
+) //text对齐方式
+
+each(@text-types, {
+    .tm-text-@{key} {
+      text-align: @value;
+    }
+  }
+
+) //主轴方向 布局
+
+each(@flex-jc, {
+    .tm-jc-@{key} {
+      display: flex;
+      justify-content: @value;
+    }
+  }
+
+) //侧轴方向 布局
+
+each(@flex-ai , {
+    .tm-ai-@{key} {
+      display: flex;
+      align-items: @value;
+    }
+  }
+
+) //1px边框 + 颜色
+
+each(@colors , {
+    .tm-border-@{key} {
+      border:1px solid @value;
+    }
+  }
+
+) //margin padding
+
+each(@spacing-sizes, {
+    .tm-m-@{key} {
+      margin: @value*@common-size  !important;
+    }
+
+    .tm-mx-@{key} {
+      margin: 0 @value*@common-size  !important;
+    }
+
+    .tm-my-@{key} {
+      margin: @value*@common-size 0 !important;
+    }
+
+    .tm-mr-@{key} {
+      margin-right: @value*@common-size  !important;
+    }
+
+    .tm-ml-@{key} {
+      margin-left: @value*@common-size  !important;
+    }
+
+    .tm-mt-@{key} {
+      margin-top: @value*@common-size  !important;
+    }
+
+    .tm-mb-@{key} {
+      margin-bottom: @value*@common-size  !important;
+    }
+
+    .tm-p-@{key} {
+      padding: @value*@common-size  !important;
+    }
+
+    .tm-px-@{key} {
+      padding: 0 @value*@common-size  !important;
+    }
+
+    .tm-py-@{key} {
+      padding: @value*@common-size 0 !important;
+    }
+
+    .tm-pr-@{key} {
+      padding-right: @value*@common-size  !important;
+    }
+
+    .tm-pl-@{key} {
+      padding-left: @value*@common-size  !important;
+    }
+
+    .tm-pt-@{key} {
+      padding-top: @value*@common-size  !important;
+    }
+
+    .tm-pb-@{key} {
+      padding-bottom: @value*@common-size  !important;
+    }
+  }
+
+);
