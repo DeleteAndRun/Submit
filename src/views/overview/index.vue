@@ -71,7 +71,7 @@
       <div class="myChart" id="chart2"></div>
     </div>
     <div class="tm-flex-1 tm-p-2">
-      <div class="tm-text-grey-9 tm-mb-1">By Quarter</div>
+      <div class="tm-text-grey-9 tm-mb-1">By HA</div>
       <div class="myChart" id="chart3"></div>
     </div>
   </div>
@@ -126,7 +126,7 @@ watch(
       return (Math.random() * 1000).toFixed(0) - 0;
     });
     data4.value = data1.value.map((n) => {
-      return (Math.random() * 100).toFixed(0) - 0;
+      return (Math.random()).toFixed(0) - 0;
     });
     console.log(111, data1.value, data2.value, data3.value, data4.value);
     init();
@@ -147,7 +147,7 @@ let data2 = ref([
   { value: 484, name: "D" },
 ]);
 let data3 = ref([100, 150, 200]);
-let data4 = ref([150, 230, 224, 218, 135, 147, 260]);
+let data4 = ref([15, 23, 22, 21, 13, 14, 26, 12, 23, 24, 15, 18]);
 
 const chart1Init = () => {
   let chartDom = document.getElementById("chart1");
@@ -243,7 +243,7 @@ const chart4Init = () => {
   let option = {
     xAxis: {
       type: "category",
-      data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      data: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
     },
     yAxis: {
       type: "value",

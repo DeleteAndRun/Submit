@@ -1,11 +1,4 @@
-/*
- * @Author: xyw
- * @Date: 2022-06-14 15:58:33
- * @LastEditors: lz
- * @LastEditTime: 2022-10-24 14:48:07
- * @Description:
- * @FilePath: \submission\vite.config.js
- */
+
 import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import { resolve } from "path";

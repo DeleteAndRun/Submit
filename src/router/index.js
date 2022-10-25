@@ -23,7 +23,7 @@ export const routes = [
     children: [
       {
         path: "/overview",
-        meta: { title: "overview", hidden: false, icon: "appstore-outlined" },
+        meta: { title: "Overview", hidden: false, icon: "appstore-outlined" },
         component: () => import("../views/overview/index.vue"),
       },
     ],
@@ -31,7 +31,7 @@ export const routes = [
   {
     path: "/submissions",
     meta: {
-      title: "submissions",
+      title: "Submissions",
       hidden: false,
       keepAlive: false,
       icon: "appstore-outlined",
@@ -41,7 +41,7 @@ export const routes = [
       {
         path: "/submissions",
         meta: {
-          title: "submissions",
+          title: "Submissions",
           hidden: false,
           icon: "appstore-outlined",
         },

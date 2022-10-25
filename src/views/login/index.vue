@@ -16,6 +16,7 @@
             style="width: 320px"
             v-model:value="formInline.username"
             placeholder="User Name"
+            disabled
           />
         </div>
         <div class="tm-mb-3">
@@ -23,6 +24,7 @@
             style="width: 320px"
             v-model:value="formInline.password"
             placeholder="Password"
+            disabled
           />
         </div>
         <div class="tm-text-ct">
@@ -52,7 +54,7 @@ const goLogin = () => {
 .bg {
   width: 100%;
   height: 100%;
-  background-image: url("../../assets/images/bg.webp");
+  background-image: url("../../assets/images/bg.jpeg");
   background-size: 100% 100%;
   position: relative;
   overflow: hidden;

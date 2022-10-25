@@ -26,17 +26,15 @@
       <a-table :columns="columns" :data-source="data">
         <template #headerCell="{ column }">
           <template v-if="column.key === 'name'">
-            <span> Name </span>
+            <span> Submission Name </span>
           </template>
         </template>
 
         <template #bodyCell="{ column, record }">
           <template v-if="column.key === 'name'">
-            <a>
-              {{ record.name }}
-            </a>
+            <a @click="goDetail">{{ record.name }}</a>
           </template>
-          <template v-else-if="column.key === 'tags'">
+<!--           <template v-else-if="column.key === 'tags'">
             <span>
               <a-tag
                 v-for="tag in record.tags"
@@ -52,7 +50,7 @@
                 {{ tag.toUpperCase() }}
               </a-tag>
             </span>
-          </template>
+          </template> -->
           <template v-else-if="column.key === 'action'">
             <span>
               <a @click="goDetail">Detail</a>
@@ -78,24 +76,9 @@ watch(
 
 const columns = [
   {
-    name: "Name",
+    name: "Submission Name",
     dataIndex: "name",
     key: "name",
-  },
-  {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
-  },
-  {
-    title: "Address",
-    dataIndex: "address",
-    key: "address",
-  },
-  {
-    title: "Tags",
-    key: "tags",
-    dataIndex: "tags",
   },
   {
     title: "Action",
@@ -105,24 +88,15 @@ const columns = [
 let data = ref([
   {
     key: "1",
-    name: "John Brown",
-    age: 32,
-    address: "New York No. 1 Lake Park",
-    tags: ["nice", "developer"],
+    name: "AIN457M HS",
   },
   {
     key: "2",
-    name: "Jim Green",
-    age: 42,
-    address: "London No. 1 Lake Park",
-    tags: ["loser"],
+    name: "ACZ885U",
   },
   {
     key: "3",
-    name: "Joe Black",
-    age: 32,
-    address: "Sidney No. 1 Lake Park",
-    tags: ["cool", "teacher"],
+    name: "KJX839A1",
   },
 ]);
 let formInline = ref({
