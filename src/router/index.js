@@ -1,11 +1,4 @@
-/*
- * @Author: xyw
- * @Date: 2022-06-15 09:29:42
- * @LastEditors: lz
- * @LastEditTime: 2022-10-24 14:47:59
- * @Description:
- * @FilePath: \submission\src\router\index.js
- */
+
 import { createRouter, createWebHistory } from "vue-router";
 import { message } from "ant-design-vue";
 import layout from "../layout/index.vue";
