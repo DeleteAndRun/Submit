@@ -1,6 +1,6 @@
 <template>
   <div class="logo tm-flex tm-ai-center tm-transition tm-cursor">
-    <div v-show="!props.collapsed" class="tm-text-white tm-fs-xxl">LOGO</div>
+    <div v-show="!props.collapsed" class="tm-text-white tm-fs-xxl">DO Submission Excellence</div>
   </div>
   <div class="menuBox">
     <a-menu

@@ -1,11 +1,4 @@
-<!--
- * @Author: xyw
- * @Date: 2022-10-24 09:11:09
- * @LastEditors: xyw
- * @LastEditTime: 2022-10-24 09:20:31
- * @Description: 
- * @FilePath: \submission\src\views\login\index.vue
--->
+
 <template>
   <div class="bg">
     <div class="title">DO Submission Excellence</div>

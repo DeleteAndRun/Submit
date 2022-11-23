@@ -14,10 +14,7 @@
         </a-col>
         <a-col :xs="24" :sm="24" :md="12" :xl="8" :xxl="6">
           <a-form-item class="tm-flex">
-            <a-button class="tm-mr-2" type="primary" @click="onSubmit"
-              >Search</a-button
-            >
-            <a-button @click="onReset">Reset</a-button>
+
           </a-form-item>
         </a-col>
       </a-form>
@@ -92,18 +89,54 @@ let data = ref([
   },
   {
     key: "2",
-    name: "ACZ885U",
+    name: "AAA517A1 PC QA report PAM",
   },
   {
     key: "3",
-    name: "KJX839A1",
+    name: "ACZ885H gouty arthritis sBLA",
+  },
+  {
+    key: "4",
+    name: "ETB115J ITP  J2411 Type II/sNDA EU",
+  },
+  {
+    key: "5",
+    name: "AIN457A Pso A1402 Article46",
+  },
+  {
+    key: "6",
+    name: "LTW888A1 Retinal dystrophy",
+  },
+  {
+    key: "7",
+    name: "ETB115J ITP  J2411 Type II/sNDA EU",
+  },
+  {
+    key: "8",
+    name: "IGE025K1 asthma autoinjector",
+  },
+  {
+    key: "9",
+    name: "DRB436G peds glioma",
+  },
+  {
+    key: "10",
+    name: "AMG334A Migraine EU license renewal",
+  },
+  {
+    key: "11",
+    name: "RTH258A nAMD posology label update EU",
+  },
+  {
+    key: "12",
+    name: "INC280A US PMR",
   },
 ]);
 let formInline = ref({
   submission: "",
 });
-const onSubmit = () => {};
-const onReset = () => {};
+
+
 const router = useRouter();
 const goDetail = () => {
   router.push("/submissionsDetail");

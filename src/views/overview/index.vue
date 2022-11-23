@@ -5,10 +5,10 @@
       <div>Submission News</div>
     </div>
     <div class="rt">
-      <div class="rItem">news1</div>
-      <div class="rItem">news2</div>
-      <div class="rItem">news3</div>
-      <div class="rItem">news4</div>
+      <div class="rItem">AAA517A1 PC QA report PAM &nbsp&nbsp&nbspFDA Submission &nbsp&nbsp&nbsp 2022-10-28</div>
+      <div class="rItem">ACZ885H gouty arthritis sBLA  &nbsp&nbsp&nbsp FDA Submission  &nbsp&nbsp&nbsp 2022-10-27</div>
+      <div class="rItem">AIN457A Pso A1402 Article46  &nbsp&nbsp&nbsp EMA Submission  &nbsp&nbsp&nbsp 2022-10-18</div>
+      <div class="rItem">LTW888A1 Retinal dystrophy  &nbsp&nbsp&nbsp PMDA Submission  &nbsp&nbsp&nbsp 2022-09-30</div>
     </div>
   </div>
   <div class="tm-flex tm-mt-1">
@@ -16,7 +16,7 @@
       <div class="left">
         <div class="title tm-text-grey-9">FDA Submission</div>
         <div class="num">
-          123
+          22
           <rise-outlined class="tm-ml-2" />
         </div>
       </div>
@@ -28,7 +28,7 @@
       <div class="left">
         <div class="title tm-text-grey-9">EMA Submission</div>
         <div class="num">
-          123
+          36
           <rise-outlined class="tm-ml-2" />
         </div>
       </div>
@@ -40,7 +40,7 @@
       <div class="left">
         <div class="title tm-text-grey-9">NMPA Submission</div>
         <div class="num">
-          123
+          1
           <rise-outlined class="tm-ml-2" />
         </div>
       </div>
@@ -52,7 +52,7 @@
       <div class="left">
         <div class="title tm-text-grey-9">PMDA Submission</div>
         <div class="num">
-          123
+          5
           <rise-outlined class="tm-ml-2" />
         </div>
       </div>
@@ -113,20 +113,26 @@ watch(
     data1.value = data1.value.map((n) => {
       return {
         name: n.name,
-        value: (Math.random() * 1000).toFixed(0),
+        value: n.value,
       };
     });
-    data2.value = data1.value.map((n) => {
+    data2.value = data2.value.map((n) => {
       return {
         name: n.name,
-        value: (Math.random() * 1000).toFixed(0),
+        value: n.value,
       };
     });
-    data3.value = data1.value.map((n) => {
-      return (Math.random() * 1000).toFixed(0) - 0;
+    data3.value = data3.value.map((n) => {
+      return {
+        name: n.name,
+        value: n.value,
+      };
     });
-    data4.value = data1.value.map((n) => {
-      return (Math.random()).toFixed(0) - 0;
+    data4.value = data4.value.map((n) => {
+      return {
+        name: n.name,
+        value: n.value,
+      };
     });
     console.log(111, data1.value, data2.value, data3.value, data4.value);
     init();
@@ -135,19 +141,40 @@ watch(
 
 let MonthType = ref("a");
 let data1 = ref([
-  { value: 1048, name: "A" },
-  { value: 735, name: "B" },
-  { value: 580, name: "C" },
-  { value: 484, name: "D" },
+  { value: 2, name: "Cardio Renal Metabolic" },
+  { value: 1, name: "Gene Therapies" },
+  { value: 2, name: "Global Health" },
+  { value: 10, name: "Immunology" },
+  { value: 2, name: "Neuroscience" },
+  { value: 18, name: "Oncology - Hematology" },
+  { value: 26, name: "Oncology - Solid Tumors" },
+  { value: 2, name: "Ophthalmology" },
+  { value: 1, name: "Respiratory and Allergy" },
 ]);
 let data2 = ref([
-  { value: 1048, name: "A" },
-  { value: 735, name: "B" },
-  { value: 580, name: "C" },
-  { value: 484, name: "D" },
+  { value: 10, name: "Q1" },
+  { value: 9, name: "Q2" },
+  { value: 10, name: "Q3" },
+  { value: 3, name: "Q4" },
 ]);
-let data3 = ref([100, 150, 200]);
-let data4 = ref([15, 23, 22, 21, 13, 14, 26, 12, 23, 24, 15, 18]);
+let data3 = ref([
+{ value: 22, name: "FDA" },
+{ value: 36, name: "EMA" },
+{ value: 1, name: "NMPA" },
+{ value: 5, name: "PMDA" },
+]);
+let data4 = ref([
+  { value: 2, name: "Jan" },
+  { value: 2, name: "Feb" },
+  { value: 6, name: "Mar" },
+  { value: 3, name: "Apr" },
+  { value: 2, name: "May" },
+  { value: 4, name: "Jun" },
+  { value: 1, name: "Jul" },
+  { value: 3, name: "Aug" },
+  { value: 6, name: "Sep" },
+  { value: 3, name: "Oct" },
+]);
 
 const chart1Init = () => {
   let chartDom = document.getElementById("chart1");
@@ -156,14 +183,18 @@ const chart1Init = () => {
   let option = {
     legend: {
       top: "1%",
-      left: "center",
+      orient: 'vertical',
+      left: "left",
+    },
+    tooltip: {
+      trigger: 'item'
     },
     series: [
       {
-        name: "Access From",
+        name: "By DevUnit",
         type: "pie",
         radius: ["60%", "70%"],
-        avoidLabelOverlap: false,
+        avoidLabelOverlap: true,
         itemStyle: {
           borderRadius: 10,
           borderColor: "#fff",
@@ -173,13 +204,8 @@ const chart1Init = () => {
           show: false,
           position: "center",
         },
-        emphasis: {
-          label: {
-            show: true,
-            fontSize: "20",
-            fontWeight: "bold",
-          },
-        },
+
+
         labelLine: {
           show: false,
         },
@@ -198,12 +224,19 @@ const chart2Init = () => {
       top: "1%",
       left: "center",
     },
+    tooltip: {
+      trigger: 'item'
+    },
     series: [
       {
-        name: "Access From",
+        name: "By Quarter",
         type: "pie",
         radius: "67%",
         data: data2.value,
+        label: {
+          show: false,
+          position: "center",
+        },
         emphasis: {
           itemStyle: {
             shadowBlur: 10,
@@ -211,6 +244,7 @@ const chart2Init = () => {
             shadowColor: "rgba(0, 0, 0, 0.5)",
           },
         },
+
       },
     ],
   };
@@ -221,12 +255,20 @@ const chart3Init = () => {
   chartDom.removeAttribute("_echarts_instance_");
   let myChart = echarts.init(chartDom);
   let option = {
+    legend: {
+      top: "1%",
+      left: "center",
+    },
+    tooltip: {
+      trigger: 'item'
+    },
     xAxis: {
       type: "value",
     },
     yAxis: {
       type: "category",
-      data: ["C", "B", "A"],
+      label: data3.name,
+      data: ['FDA', 'EMA', 'NMPA', 'PMDA'],
     },
     series: [
       {
@@ -241,6 +283,9 @@ const chart4Init = () => {
   let chartDom = document.getElementById("chart4");
   let myChart = echarts.init(chartDom);
   let option = {
+    tooltip: {
+      trigger: 'item'
+    },
     xAxis: {
       type: "category",
       data: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
@@ -315,7 +360,7 @@ onUpdated(() => {
   }
 
   &:nth-child(4) {
-    color: pink;
+    color: brown;
     margin-right: 0;
   }
 

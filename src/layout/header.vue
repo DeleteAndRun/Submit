@@ -6,7 +6,7 @@
       <MenuFoldOutlined class="icon" v-else @click="changeCollapsed" /> -->
     </div>
     <div class="tm-flex tm-ai-center  tm-text-white tm-mr-5">
-      <div class="tm-cursor">DO Submission Excellence</div>
+      <div class="tm-cursor">Data Operation</div>
       <a-dropdown class="dropdown_box" >
         <div class="tm-cursor">
           <div class="avatar_box tm-ml-3">
