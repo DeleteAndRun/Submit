@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="tm-bg-white tm-p-2">
+<!--     <div class="tm-bg-white tm-p-2">
       <a-form ref="formRef" layout="inline" :model="formInline" :colon="false">
         <a-col :xs="24" :sm="24" :md="12" :xl="8" :xxl="6">
           <a-form-item label="Submission" name="submission">
@@ -18,7 +18,7 @@
           </a-form-item>
         </a-col>
       </a-form>
-    </div>
+    </div> -->
     <div class="tm-bg-white tm-mt-2 tm-p-2">
       <a-table :columns="columns" :data-source="data">
         <template #headerCell="{ column }">
@@ -63,6 +63,7 @@
 import { useRouter } from "vue-router";
 import { mainStore } from "@/store";
 import { storeToRefs } from "pinia";
+
 
 const store = mainStore();
 const { year: selYear } = storeToRefs(store);

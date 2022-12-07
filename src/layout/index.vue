@@ -1,11 +1,3 @@
-<!--
- * @Author: xyw
- * @Date: 2022-06-15 10:48:02
- * @LastEditors: xyw
- * @LastEditTime: 2022-09-14 11:56:23
- * @Description: layout组件
- * @FilePath: \fe-tm-web\src\layout\index.vue
--->
 <template>
   <a-layout class="tm-transition">
     <a-layout-sider width="256px" theme="light" v-model:collapsed="collapsed" collapsible :trigger="null"><side-bar v-model:collapsed="collapsed" /></a-layout-sider>

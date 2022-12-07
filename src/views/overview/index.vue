@@ -2,7 +2,7 @@
   <div class="tm-flex tm-bg-white news">
     <div class="lt tm-ai-center tm-jc-center">
       <global-outlined class="w-100" />
-      <div>Submission News</div>
+      <div class="title tm-text-grey-9">Submission News</div>
     </div>
     <div class="rt">
       <div class="rItem">AAA517A1 PC QA report PAM &nbsp&nbsp&nbspFDA Submission &nbsp&nbsp&nbsp 2022-10-28</div>
@@ -63,21 +63,30 @@
   </div>
   <div class="chartBox tm-mt-1 tm-flex">
     <div class="tm-flex-1 tm-p-2">
-      <div class="tm-text-grey-9 tm-mb-1">By DevUnit</div>
+      <div class="tm-text-grey-9 tm-mb-1">Submissions By DevUnit in Selected Year</div>
       <div class="myChart" id="chart1"></div>
     </div>
     <div class="tm-flex-1 tm-p-2">
-      <div class="tm-text-grey-9 tm-mb-1">By Quarter</div>
+      <div class="tm-text-grey-9 tm-mb-1">Submissions By Quarter in Selected Year</div>
       <div class="myChart" id="chart2"></div>
     </div>
     <div class="tm-flex-1 tm-p-2">
-      <div class="tm-text-grey-9 tm-mb-1">By HA</div>
+      <div class="tm-text-grey-9 tm-mb-1">Submissions By HA in Selected Year</div>
       <div class="myChart" id="chart3"></div>
     </div>
   </div>
-  <div class="tm-mt-1 tm-p-2 tm-bg-white">
-    <div class="tm-flex tm-jc-between">
-      <div class="t">Submissions by Month</div>
+
+  <div class="chartBox2 tm-mt-1 tm-flex">
+    <div class="tm-flex-1 tm-p-2">
+    <div class="tm-text-grey-9 tm-mb-1">
+      <div class="t">Submissions by Compound in Selected Year</div>
+    </div>
+    <div class="myChart2" id="chart5"></div>
+  </div>
+
+    <div class="tm-flex-1 tm-p-2">
+    <div class="tm-text-grey-9 tm-mb-1">
+      <div class="t">Submissions by Month in Selected Year</div>
       <div>
         <a-radio-group v-model:value="MonthType" button-style="solid">
           <a-radio-button value="a">All</a-radio-button>
@@ -88,8 +97,9 @@
         </a-radio-group>
       </div>
     </div>
-    <div class="chart4" id="chart4"></div>
+    <div class="myChart2" id="chart4"></div>
   </div>
+</div>
 </template>
 
 <script setup>
@@ -102,6 +112,7 @@ import { onUpdated } from "@vue/runtime-core";
 import * as echarts from "echarts";
 import { mainStore } from "@/store";
 import { storeToRefs } from "pinia";
+
 
 const store = mainStore();
 // const selYear = store.selYear;
@@ -134,7 +145,13 @@ watch(
         value: n.value,
       };
     });
-    console.log(111, data1.value, data2.value, data3.value, data4.value);
+    data5.value = data5.value.map((n) => {
+      return {
+        name: n.name,
+        value: n.value,
+      };
+    });
+    console.log(111, data1.value, data2.value, data3.value, data4.value, data5.value);
     init();
   }
 );
@@ -175,6 +192,18 @@ let data4 = ref([
   { value: 6, name: "Sep" },
   { value: 3, name: "Oct" },
 ]);
+let data5 = ref([
+  { value: 2, name: "Jan" },
+  { value: 2, name: "Feb" },
+  { value: 6, name: "Mar" },
+  { value: 3, name: "Apr" },
+  { value: 2, name: "May" },
+  { value: 4, name: "Jun" },
+  { value: 1, name: "Jul" },
+  { value: 3, name: "Aug" },
+  { value: 6, name: "Sep" },
+  { value: 3, name: "Oct" },
+]);
 
 const chart1Init = () => {
   let chartDom = document.getElementById("chart1");
@@ -186,6 +215,14 @@ const chart1Init = () => {
       orient: 'vertical',
       left: "left",
     },
+    toolbox: {
+    show: true,
+    feature: {
+
+      dataView: { show: true, readOnly: true },
+      saveAsImage: { show: true }
+    }
+  },
     tooltip: {
       trigger: 'item'
     },
@@ -224,9 +261,18 @@ const chart2Init = () => {
       top: "1%",
       left: "center",
     },
+    toolbox: {
+    show: true,
+    feature: {
+
+      dataView: { show: true, readOnly: true },
+      saveAsImage: { show: true }
+    }
+  },
     tooltip: {
       trigger: 'item'
     },
+
     series: [
       {
         name: "By Quarter",
@@ -255,10 +301,15 @@ const chart3Init = () => {
   chartDom.removeAttribute("_echarts_instance_");
   let myChart = echarts.init(chartDom);
   let option = {
-    legend: {
-      top: "1%",
-      left: "center",
-    },
+
+    toolbox: {
+    show: true,
+    feature: {
+
+      dataView: { show: true, readOnly: true },
+      saveAsImage: { show: true }
+    }
+  },
     tooltip: {
       trigger: 'item'
     },
@@ -271,7 +322,7 @@ const chart3Init = () => {
       data: ['FDA', 'EMA', 'NMPA', 'PMDA'],
     },
     series: [
-      {
+      {name: 'By HA',
         data: data3.value,
         type: "bar",
       },
@@ -286,6 +337,14 @@ const chart4Init = () => {
     tooltip: {
       trigger: 'item'
     },
+    toolbox: {
+    show: true,
+    feature: {
+
+      dataView: { show: true, readOnly: true },
+      saveAsImage: { show: true }
+    }
+  },
     xAxis: {
       type: "category",
       data: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
@@ -294,7 +353,7 @@ const chart4Init = () => {
       type: "value",
     },
     series: [
-      {
+      {name: 'By Month',
         data: data4.value,
         type: "line",
       },
@@ -302,11 +361,52 @@ const chart4Init = () => {
   };
   myChart.setOption(option);
 };
+
+
+const chart5Init = () => {
+  let chartDom = document.getElementById("chart5");
+  let myChart = echarts.init(chartDom);
+  let option = {
+  tooltip: {
+      trigger: 'item'
+    },
+    legend: {
+      top: "1%",
+      orient: 'vertical',
+      left: "left",
+    },
+  toolbox: {
+    show: true,
+    feature: {
+
+      dataView: { show: true, readOnly: true },
+      saveAsImage: { show: true }
+    }
+  },
+  series: [
+    {
+      name: 'By Compound',
+      type: 'pie',
+      radius: [40, 200],
+      center: ['50%', '50%'],
+      roseType: 'area',
+      itemStyle: {
+        borderRadius: 10
+      },
+      data: data5.value
+    }
+  ]
+};
+  myChart.setOption(option);
+};
+
+
 const init = () => {
   chart1Init();
   chart2Init();
   chart3Init();
   chart4Init();
+  chart5Init();
 };
 onMounted(() => {
   init();
@@ -314,6 +414,7 @@ onMounted(() => {
 onUpdated(() => {
   init();
 });
+
 </script>
 
 <style lang="less" scoped>
@@ -383,10 +484,24 @@ onUpdated(() => {
       padding: 10px;
       height: 300px;
     }
+
   }
 }
 
-.chart4 {
-  height: 280px;
+
+.chartBox2 {
+  .tm-flex-1 {
+    background-color: #fff;
+    .myChart2 {
+      padding: 10px;
+      height: 360px;
+    }
+
+  }
 }
+
+
+/* .chart4 {
+  height: 280px;
+} */
 </style>
