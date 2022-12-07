@@ -10,6 +10,10 @@
       <div class="rItem">AIN457A Pso A1402 Article46  &nbsp&nbsp&nbsp EMA Submission  &nbsp&nbsp&nbsp 2022-10-18</div>
       <div class="rItem">LTW888A1 Retinal dystrophy  &nbsp&nbsp&nbsp PMDA Submission  &nbsp&nbsp&nbsp 2022-09-30</div>
     </div>
+    <div class="tt tm-ai-center tm-jc-center">
+      <TrophyOutlined class="w-100" />
+      <div class="title tm-text-grey-9">Congratulations!</div>
+    </div>
   </div>
   <div class="tm-flex tm-mt-1">
     <div class="panel">
@@ -21,7 +25,7 @@
         </div>
       </div>
       <div class="right">
-        <column-height-outlined class="icon" />
+        <AuditOutlined class="icon" />
       </div>
     </div>
     <div class="panel">
@@ -33,7 +37,7 @@
         </div>
       </div>
       <div class="right">
-        <column-height-outlined class="icon" />
+        <AuditOutlined class="icon" />
       </div>
     </div>
     <div class="panel">
@@ -45,7 +49,7 @@
         </div>
       </div>
       <div class="right">
-        <column-height-outlined class="icon" />
+        <AuditOutlined class="icon" />
       </div>
     </div>
     <div class="panel">
@@ -57,7 +61,7 @@
         </div>
       </div>
       <div class="right">
-        <column-height-outlined class="icon" />
+        <AuditOutlined class="icon" />
       </div>
     </div>
   </div>
@@ -105,8 +109,9 @@
 <script setup>
 import {
   GlobalOutlined,
-  ColumnHeightOutlined,
+  AuditOutlined,
   RiseOutlined,
+  TrophyOutlined,
 } from "@ant-design/icons-vue";
 import { onUpdated } from "@vue/runtime-core";
 import * as echarts from "echarts";
@@ -424,6 +429,16 @@ onUpdated(() => {
   .lt {
     flex: 1;
     flex-wrap: wrap;
+
+    .w-100 {
+      font-size: 50px;
+    }
+  }
+
+  .tt{
+    flex: 1;
+    flex-wrap: wrap;
+    color: gold;
 
     .w-100 {
       font-size: 50px;

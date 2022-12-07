@@ -51,10 +51,13 @@
             <a-menu-item @click="router.push(item.path)" :key="item.path">
               <template #icon> </template>
               <span>{{ item.meta.title }}</span>
+              
             </a-menu-item>
+            
           </template>
         </template>
       </template>
+
       <!-- 日期选择 -->
       <a-menu-item key="date">
         <a-date-picker
@@ -63,7 +66,10 @@
           valueFormat="YYYY"
           picker="year"
         />
+        
       </a-menu-item>
+
+
     </a-menu>
   </div>
 </template>
@@ -71,6 +77,7 @@
 <script setup>
 import { routes } from "../router";
 import { mainStore } from "@/store";
+
 
 const store = mainStore();
 
@@ -108,6 +115,8 @@ const panelChange = (value) => {
   overflow-y: auto;
   overflow-x: hidden;
   height: calc(100vh - 50px);
+  display: flex;
+  justify-content: space-between;
 
   &::-webkit-scrollbar {
     width: 0px;
@@ -120,6 +129,9 @@ const panelChange = (value) => {
     background-color: #fff;
   }
 
+  .title {
+    margin-bottom: 20px;
+  }
   .menuClassName {
     &:after {
       content: "new";
