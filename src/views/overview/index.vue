@@ -68,7 +68,7 @@
   <div class="chartBox tm-mt-1 tm-flex">
     <div class="tm-flex-1 tm-p-2">
       <div class="tm-text-grey-9 tm-mb-1">Submissions By DevUnit in Selected Year</div>
-      <div class="myChart" id="chart1"></div>
+      <div class="myChart1" id="chart1"></div>
     </div>
     <div class="tm-flex-1 tm-p-2">
       <div class="tm-text-grey-9 tm-mb-1">Submissions By Quarter in Selected Year</div>
@@ -76,7 +76,7 @@
     </div>
     <div class="tm-flex-1 tm-p-2">
       <div class="tm-text-grey-9 tm-mb-1">Submissions By HA in Selected Year</div>
-      <div class="myChart" id="chart3"></div>
+      <div class="myChart3" id="chart3"></div>
     </div>
   </div>
 
@@ -264,7 +264,7 @@ const chart2Init = () => {
   let option = {
     legend: {
       top: "1%",
-      left: "center",
+      left: "left",
     },
     toolbox: {
     show: true,
@@ -498,6 +498,17 @@ onUpdated(() => {
     .myChart {
       padding: 10px;
       height: 300px;
+      width:auto;
+    }
+    .myChart1 {
+      padding: 10px;
+      height: 300px;
+      width: 390px;
+    }
+    .myChart3 {
+      padding: 10px;
+      height: 300px;
+      width: 450px;
     }
 
   }

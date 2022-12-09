@@ -1,6 +1,6 @@
 <template>
   <a-layout class="tm-transition">
-    <a-layout-sider width="256px" theme="light" v-model:collapsed="collapsed" collapsible :trigger="null"><side-bar v-model:collapsed="collapsed" /></a-layout-sider>
+    <a-layout-sider width="230px" theme="light" v-model:collapsed="collapsed" collapsible :trigger="null"><side-bar v-model:collapsed="collapsed" /></a-layout-sider>
     <a-layout :class="collapsed ? 'hide' : 'show'">
       <a-layout-header><Header v-model:collapsed="collapsed" /></a-layout-header>
       <a-layout-content class="tm-p-1 tm-scrollbar">
@@ -24,7 +24,7 @@ const router = useRouter()
 .ant-layout {
   min-height: 100vh;
   &.show {
-    padding-left: 256px;
+    padding-left: 230px;
     overflow-x: hidden;
   }
   &.hide {
