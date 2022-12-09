@@ -67,15 +67,15 @@
   </div>
   <div class="chartBox tm-mt-1 tm-flex">
     <div class="tm-flex-1 tm-p-2">
-      <div class="tm-text-grey-9 tm-mb-1">Submissions By DevUnit in Selected Year</div>
+      <div class="tm-text-grey-9 tm-mb-1">Submissions By DevUnit</div>
       <div class="myChart1" id="chart1"></div>
     </div>
     <div class="tm-flex-1 tm-p-2">
-      <div class="tm-text-grey-9 tm-mb-1">Submissions By Quarter in Selected Year</div>
+      <div class="tm-text-grey-9 tm-mb-1">Submissions By Quarter</div>
       <div class="myChart" id="chart2"></div>
     </div>
     <div class="tm-flex-1 tm-p-2">
-      <div class="tm-text-grey-9 tm-mb-1">Submissions By HA in Selected Year</div>
+      <div class="tm-text-grey-9 tm-mb-1">Submissions By HA</div>
       <div class="myChart3" id="chart3"></div>
     </div>
   </div>
@@ -83,14 +83,14 @@
   <div class="chartBox2 tm-mt-1 tm-flex">
     <div class="tm-flex-1 tm-p-2">
     <div class="tm-text-grey-9 tm-mb-1">
-      <div class="t">Submissions by Compound in Selected Year</div>
+      <div class="t">Submissions by Compound</div>
     </div>
     <div class="myChart2" id="chart5"></div>
   </div>
 
     <div class="tm-flex-1 tm-p-2">
     <div class="tm-text-grey-9 tm-mb-1">
-      <div class="t">Submissions by Month in Selected Year</div>
+      <div class="t">Submissions by Month</div>
       <div>
         <a-radio-group v-model:value="MonthType" button-style="solid">
           <a-radio-button value="a">All</a-radio-button>

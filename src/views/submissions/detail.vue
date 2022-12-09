@@ -1,16 +1,16 @@
 <template>
   <div class="tm-bg-white tm-p-2">
     <div class="title">AIN457M HS</div>
-    <div class="tm-mt-2">
+<!--     <div class="tm-mt-2">
       <div class="tItem" v-for="item in list">
         <div class="img">
           Study
         </div>
         <div class="tm-ml-2">{{ item.name }}</div>
       </div>
-    </div>
+    </div> -->
     <div class="tm-mt-2">
-      <div class="tm-fs-xxl tm-mb-3">Submission</div>
+      <div class="tm-fs-xxl tm-mb-3">Submissions</div>
       <a-table :columns="columns" :data-source="data" :pagination="false">
         <template #headerCell="{ column }">
           <template v-if="column.key === 'name'">
